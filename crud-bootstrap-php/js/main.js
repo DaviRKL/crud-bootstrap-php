@@ -11,3 +11,4 @@ $('#delete-modal').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text('Excluir Cliente #' + id);
   modal.find('#confirm').attr('href', 'delete.php?id=' + id);
 })
+

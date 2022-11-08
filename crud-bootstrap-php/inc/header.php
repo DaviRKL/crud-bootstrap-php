@@ -75,7 +75,7 @@
 				<li class="nav-item dropdown">
 				  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-users"></i>  Clientes</a>
 				  <ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="<?php echo BASEURL; ?>customers/add.php"><i class="fa-solid fa-user-plus"></i>Adicionar usuários</a></li>
+					<li><a class="dropdown-item" href="<?php echo BASEURL; ?>customers/add.php"><i class="fa-solid fa-user-plus"></i> Adicionar usuários</a></li>
 					<li><a class="dropdown-item"  href="<?php echo BASEURL; ?>customers"><i class="fa-solid fa-users"></i> Clientes</a></li>
 				  </ul>
 				</li>
@@ -84,8 +84,17 @@
 				<li class="nav-item dropdown">
 				  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-car"></i> Carros</a>
 				  <ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="<?php echo BASEURL; ?>carro/add.php"><i class="fa-solid fa-car-on"></i>Adicionar carros</a></li>
+					<li><a class="dropdown-item" href="<?php echo BASEURL; ?>carro/add.php"><i class="fa-solid fa-car-on"></i> Adicionar carros</a></li>
 					<li><a class="dropdown-item"  href="<?php echo BASEURL; ?>carro"><i class="fa-solid fa-car"></i> Carros</a></li>
+				  </ul>
+				</li>
+			  </ul>
+			  <ul class="navbar-nav">
+				<li class="nav-item dropdown">
+				  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-users"></i> Usuários</a>
+				  <ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="<?php echo BASEURL; ?>usuarios/add.php"><i class="fa-solid fa-user-plus"></i> Adicionar usuários</a></li>
+					<li><a class="dropdown-item"  href="<?php echo BASEURL; ?>usuarios"><i class="fa-solid fa-users"></i> Usuários</a></li>
 				  </ul>
 				</li>
 			  </ul>

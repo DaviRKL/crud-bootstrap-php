@@ -11,7 +11,7 @@
 <?php if ($db) : ?>
 
 	<div class="row">
-		<div class="col-xl-3 col-sm-3 col-md-2">
+		<div class="col-xl-2 col-sm-3 col-md-2">
 			<a href="customers/add.php" class="btn btn-secondary">
 				<div class="row">
 					<div class="col-xs-12 text-center">
@@ -24,7 +24,7 @@
 			</a>
 		</div>
 
-		<div class="col-xl-3 col-sm-3 col-md-2">
+		<div class="col-xl-2 col-sm-3 col-md-2">
 			<a href="customers" class="btn btn-light">
 				<div class="row">
 					<div class="col-xs-12 text-center">
@@ -37,7 +37,7 @@
 			</a>
 		</div>
 		
-		<div class="col-xl-3 col-sm-3 col-md-2">
+		<div class="col-xl-2 col-sm-3 col-md-2">
 			<a href="carro/add.php" class="btn btn-secondary">
 				<div class="row">
 					<div class="col-xs-12 text-center">
@@ -50,7 +50,7 @@
 			</a>
 		</div>
 		
-		<div class="col-xl-3 col-sm-3 col-md-2">
+		<div class="col-xl-2 col-sm-3 col-md-2">
 			<a href="carro" class="btn btn-light">
 				<div class="row">
 					<div class="col-xs-12 text-center">
@@ -58,6 +58,32 @@
 					</div>
 					<div class="col-xs-12 text-center">
 						<p>Carros</p>
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-xl-2 col-sm-3 col-md-2">
+			<a href="usuarios/add.php" class="btn btn-secondary">
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						<i class="fa-solid fa-user-plus fa-5x"></i>
+					</div>
+					<div class="col-xs-12 text-center">
+						<p>Novo usuário</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		
+		<div class="col-xl-2 col-sm-3 col-md-2">
+			<a href="usuarios" class="btn btn-light">
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						<i class="fa-solid fa-users fa-5x"></i>
+					</div>
+					<div class="col-xs-12 text-center">
+						<p>Usuários</p>
 					</div>
 				</div>
 			</a>
