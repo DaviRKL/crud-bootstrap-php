@@ -71,7 +71,7 @@ echo "<table class='table table-hover'>";
 		}else{
 			$foto = $usuario['foto'];
 		}
-		echo "<td><img src='imagens/$foto' width='400px' heigth='100px'></td>";
+		echo "<td><img src='fotos/$foto' width='400px' heigth='100px'></td>";
 	?>
 		
 		<td class="actions text-start"> 

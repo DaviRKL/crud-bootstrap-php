@@ -5,9 +5,7 @@ function FormataData($data){
 	$da = new Datetime ($data);
 	return $da->format ("d-m-Y"); 
 }
-
-       
-      
+    
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -16,42 +14,38 @@ function FormataData($data){
 border:4px solid #7914C7 ; width: 200px; 
 }
 </style>
-<header>
+<header style="margin-top:10px;">
 	<div class="row">
 		<div class="col-sm-6">
 			<h2>Usuários</h2>
 		</div>
 		<div class="col-sm-6 text-end h2">
-	    	<a class="btn btn-secondary" href="add.php"><i class="fa fa-plus"></i> Novo Cliente</a>
+	    	<a class="btn btn-secondary" href="add.php"><i class="fa fa-plus"></i> Novo Usuário</a>
 	    	<a class="btn btn-default" href="index.php"><i class="fa fa-refresh"></i> Atualizar</a>
 	    </div>
 	</div>
 </header>
 
+
+<form name = "filtro" method="post" action="index.php">
+	<div class="row">
+		<div class = "form-group col-md-4">
+			<div class ="input-group mb-3">
+				<input type="text" class="form-control" maxlength="80" name="users" required>
+				<button type="submit" class="btn btn-secondary"><i class='fas fa-search'></i> Consultar</button>
+			</div>
+		</div>
+	</div>
+</form>
 <?php if (!empty($_SESSION['message'])) : ?>
 	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
+	<?php echo $_SESSION['message']; ?>
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<?php echo $_SESSION['message']; ?>
+		
 	</div>
 	<?php clear_messages(); ?>
 	
 <?php endif; ?>
-
-<form align = "left" method="post" action="filtrogeral.php">
-			<label for="name" >Procure um usuário pelo nome:</label>
-		<div class="row">
-    <div class="form-group col-md-2">
-	
-	  <input type="text" class="form-control" name="name" id="name" placeholder="Nome">
-	  </div>
-	  
-	  <div class="form-group col-md-10">
-<input type="submit" value="Selecionar">
-</div>
-</div>
-</div>
-</form>
-
 <hr>
 
 <table class="table table-hover">
@@ -60,7 +54,6 @@ border:4px solid #7914C7 ; width: 200px;
 		<th>ID</th>
 		<th width="30%">Nome</th>
 		<th>Usuario</th>
-		<th>Senha</th>
 		<th>Foto</th>
 		<th>Opções</th>
 	</tr>
@@ -72,15 +65,14 @@ border:4px solid #7914C7 ; width: 200px;
 		<td><?php echo $usuario['id']; ?></td>
 		<td><?php echo $usuario['nome']; ?></td>
 		<td><?php echo $usuario['user']; ?></td>
-		<td><?php echo $usuario['PASSWORD'] ?></td>
-		<?php
+		<td><?php
 		if (empty($usuario['foto'])){
-			$foto = 'SemImagem.png';
+			echo  "<img src=\"fotos/" . $usuario['foto'] . "\" class=\"shadow p-1 mb-1 bg-body rounded\" width=\"300px\">";
 		}else{
-			$foto = $usuario['foto'];
+			echo  "<img src=\"fotos/SemImagem.jpg\" class\"shadow p-1 mb-1 bg-body rounded\" width=\"300px\">";
 		}
 		?>
-		<td><?php echo "<img src='imagens/$foto' width='400px' heigth='100px'>"; ?></td>
+		</td>
 		<td class="actions text-start"> 
 			<a href="view.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i> Visualizar</a>
 			<a href="edit.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-secondary"><i class="fa-solid fa-user-pen"></i> Editar</a>

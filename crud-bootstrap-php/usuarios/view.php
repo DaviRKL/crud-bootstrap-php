@@ -23,14 +23,14 @@
 	<dd><?php echo $usuario['PASSWORD']; ?></dd>
 
 	<dt>Foto:</dt>
-	<?php
+	<dd><?php
 		if (empty($usuario['foto'])){
-			$foto = 'SemImagem.png';
+			echo  "<img src=\"fotos/" . $usuario['foto'] . "\" class=\"shadow p-1 mb-1 bg-body rounded\" width=\"300px\">";
 		}else{
-			$foto = $usuario['foto'];
+			echo  "<img src=\"fotos/SemImagem.jpg\" class\"shadow p-1 mb-1 bg-body rounded\" width=\"300px\">";
 		}
 		?>
-		<td><?php echo "<img src='imagens/$foto' width='400px' heigth='100px'>"; ?></td>
+		</dd>
 </dl>
 
 <div id="actions" class="row">

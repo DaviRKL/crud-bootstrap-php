@@ -20,17 +20,17 @@
   <div class="row">
     <div class="form-group col-md-8">
       <label for="name">Nome</label>
-      <input type="text" class="form-control" name="usuario['nome']">
+      <input type="text" class="form-control" name="usuario[nome]">
     </div>
 
     <div class="form-group col-md-4">
       <label for="campo2">Usuário (Login)</label>
-      <input type="text" class="form-control" name="usuario['user']">
+      <input type="text" class="form-control" name="usuario[user]">
     </div>
 
     <div class="form-group col-md-4">
       <label for="campo3">Senha</label>
-      <input type="PASSWORD" class="form-control" name="usuario['PASSWORD']">
+      <input type="PASSWORD" class="form-control" name="usuario[PASSWORD]">
     </div>
   </div>
   

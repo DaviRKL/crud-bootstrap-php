@@ -115,14 +115,14 @@ function add() {
         $usuario['foto'] = $nomearquivo;
       }
 
-      if (!empty($usuario['password'])){
-        $senha = criptografia($usuario['password']);
-        $usuario['password'] = $senha;
+      if (!empty($usuario['PASSWORD'])){
+        $senha = criptografia($usuario['PASSWORD']);
+        $usuario['PASSWORD'] = $senha;
       }
 
       $usuario['foto'] = $nomearquivo;
 
-      save('usuarios, $usuario');
+      save('usuarios', $usuario);
       header('Location: index.php');
     } catch (Exception $e) {
       $_SESSION['message'] = "Aconteceu um erro: " . $e->getMessage();
