@@ -65,7 +65,7 @@ echo "<table class='table table-hover'>";
 		echo "<td>". $usuario['id']."</td>";
 		echo "<td>". $usuario['nome']."</td>";
 		echo "<td>".$usuario['user']."</td>";
-		echo "<td>". $usuario['password']."</td>";
+		echo "<td>". $usuario['PASSWORD']."</td>";
 		if (empty($usuario['foto'])){
 			$foto = 'SemImagem.png';
 		}else{

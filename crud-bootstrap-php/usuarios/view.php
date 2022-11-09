@@ -20,7 +20,7 @@
 	<dd><?php echo $usuario['user']; ?></dd>
 
 	<dt>Senha:</dt>
-	<dd><?php echo $usuario['password']; ?></dd>
+	<dd><?php echo $usuario['PASSWORD']; ?></dd>
 
 	<dt>Foto:</dt>
 	<?php

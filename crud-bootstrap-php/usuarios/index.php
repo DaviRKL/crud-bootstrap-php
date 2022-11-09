@@ -19,7 +19,7 @@ border:4px solid #7914C7 ; width: 200px;
 <header>
 	<div class="row">
 		<div class="col-sm-6">
-			<h2>Clientes</h2>
+			<h2>Usuários</h2>
 		</div>
 		<div class="col-sm-6 text-end h2">
 	    	<a class="btn btn-secondary" href="add.php"><i class="fa fa-plus"></i> Novo Cliente</a>
@@ -72,7 +72,7 @@ border:4px solid #7914C7 ; width: 200px;
 		<td><?php echo $usuario['id']; ?></td>
 		<td><?php echo $usuario['nome']; ?></td>
 		<td><?php echo $usuario['user']; ?></td>
-		<td><?php echo $usuario['password'] ?></td>
+		<td><?php echo $usuario['PASSWORD'] ?></td>
 		<?php
 		if (empty($usuario['foto'])){
 			$foto = 'SemImagem.png';
