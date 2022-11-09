@@ -192,3 +192,7 @@ function delete($id = null) {
   header('location: index.php');
 }
 
+function filtro($marca = null) {
+  global $usuario;
+  $usuario = find('carros', $marca);
+}

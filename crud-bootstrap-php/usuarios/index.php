@@ -37,6 +37,21 @@ border:4px solid #7914C7 ; width: 200px;
 	
 <?php endif; ?>
 
+<form align = "left" method="post" action="filtrogeral.php">
+			<label for="name" >Procure um usuário pelo nome:</label>
+		<div class="row">
+    <div class="form-group col-md-2">
+	
+	  <input type="text" class="form-control" name="name" id="name" placeholder="Nome">
+	  </div>
+	  
+	  <div class="form-group col-md-10">
+<input type="submit" value="Selecionar">
+</div>
+</div>
+</div>
+</form>
+
 <hr>
 
 <table class="table table-hover">

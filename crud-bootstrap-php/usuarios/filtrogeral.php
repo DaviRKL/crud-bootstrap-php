@@ -31,7 +31,7 @@ td,th{
 <hr>
 <?php 
 $sqlmarca =$_POST['name'];
-$sqlordem = "select * from customers where name like '%$sqlmarca%'";
+$sqlordem = "select * from usuarios where nome like '%$sqlmarca%'";
 $host = "localhost"; 			
 	$user = "root"; 
 	$pass = ""; 
@@ -44,37 +44,40 @@ $resultado = @mysqli_query($conexao, $sqlordem);
 	} 
 	
 	else{
+
+
+		
 echo "<table class='table table-hover'>";
 	echo "<thead>
 	<tr>
-	<tr>
-	<th>Id</th>
-	<th width='30%'>Nome</th>
-	<th>CPF/CNPJ</th>
-	<th>Telefone</th>
-	<th>Atualizado em</th>
-	<th>Data</th>
-	<th>Opções</th>
-	<tr>
+		<th>ID</th>
+		<th width='30%'>Nome</th>
+		<th>Usuario</th>
+		<th>Senha</th>
+		<th>Foto</th>
+		<th>Opções</th>
 	</tr>
-	</thead>
+</thead>
 	<tbody>";			
-		while($customer=mysqli_fetch_array($resultado)) 
+		while($usuario=mysqli_fetch_array($resultado)) 
 		{
 		echo "<tr>";
-		echo "<td>". $customer['id']."</td>";
-		echo "<td>". $customer['name']."</td>";
-		echo "<td>".$customer['cpf_cnpj']."</td>";
-		echo "<td>". $customer['phone']."</td>";
-		$d = new Datetime($customer['modified']);	
-		echo "<td>". $d ->format("d/m/Y")."</td>";
-		echo "<td>".$customer['modified']."</td>";
+		echo "<td>". $usuario['id']."</td>";
+		echo "<td>". $usuario['nome']."</td>";
+		echo "<td>".$usuario['user']."</td>";
+		echo "<td>". $usuario['password']."</td>";
+		if (empty($usuario['foto'])){
+			$foto = 'SemImagem.png';
+		}else{
+			$foto = $usuario['foto'];
+		}
+		echo "<td><img src='imagens/$foto' width='400px' heigth='100px'></td>";
 	?>
 		
 		<td class="actions text-start"> 
-			<a href="view.php?id=<?php echo $customer['id']; ?>" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i> Visualizar</a>
-			<a href="edit.php?id=<?php echo $customer['id']; ?>" class="btn btn-sm btn-secondary"><i class="fa-solid fa-user-pen"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-modal" data-carro="<?php echo $customer['id']; ?>" >
+			<a href="view.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i> Visualizar</a>
+			<a href="edit.php?id=<?php echo $usuario['id']; ?>" class="btn btn-sm btn-secondary"><i class="fa-solid fa-user-pen"></i> Editar</a>
+			<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-modal" data-carro="<?php echo $usuario['id']; ?>" >
 				<i class="fa fa-trash"></i> Excluir
 			</a>
 		</td>
@@ -94,5 +97,5 @@ echo "<table class='table table-hover'>";
 
 
 
-<?php include('modal.php'); ?>
+<?php include('modalusuarios.php'); ?>
 <?php include(FOOTER_TEMPLATE);	?>
