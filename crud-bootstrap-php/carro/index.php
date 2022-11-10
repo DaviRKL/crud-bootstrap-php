@@ -43,20 +43,16 @@ label{
 	</div>
 	<?php clear_messages(); ?>
 <?php endif; ?>
-<form align = "left" method="post" action="filtrogeral.php">
-			<label for="cars" >Escolha uma marca de carro:</label>
-		<div class="row">
-    <div class="form-group col-md-2">
-	
-	  <input type="text" class="form-control" name="cars" id="cars" placeholder="Marca">
-	  </div>
-	  
-	  <div class="form-group col-md-10">
-<input type="submit" value="Selecionar">
-</div>
-</div>
-</div>
-</form>
+<form name = "filtro" method="post" action="index.php">
+			<div class="row">
+				<div class = "form-group col-md-4">
+					<div class ="input-group mb-3">
+						<input type="text" class="form-control" maxlength="80" name="cars" required>
+						<button type="submit" class="btn btn-secondary"><i class='fas fa-search'></i> Consultar</button>
+					</div>
+				</div>
+			</div>
+		</form>
 <hr>
 
 <table class="table table-hover">
@@ -97,7 +93,7 @@ label{
 		<td class="actions text-start"> 
 			<a href="view.php?id=<?php echo $carro['id']; ?>" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i> Visualizar</a>
 			<a href="edit.php?id=<?php echo $carro['id']; ?>" class="btn btn-sm btn-secondary"><i class="fa-solid fa-user-pen"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-modal" data-carro="<?php echo $carro['id']; ?>" >
+			<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-carro-modal" data-carro="<?php echo $carro['id']; ?>" >
 				<i class="fa fa-trash"></i> Excluir
 			</a>
 		</td>

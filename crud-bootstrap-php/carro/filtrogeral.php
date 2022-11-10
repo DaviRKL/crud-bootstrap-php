@@ -81,7 +81,7 @@ echo "<table class='table table-hover'>";
 		<td class="actions text-start"> 
 			<a href="view.php?id=<?php echo $carros['id']; ?>" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i> Visualizar</a>
 			<a href="edit.php?id=<?php echo $carros['id']; ?>" class="btn btn-sm btn-secondary"><i class="fa-solid fa-user-pen"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-modal" data-carro="<?php echo $carros['id']; ?>" >
+			<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-carro-modal" data-carro="<?php echo $carros['id']; ?>" >
 				<i class="fa fa-trash"></i> Excluir
 			</a>
 		</td>

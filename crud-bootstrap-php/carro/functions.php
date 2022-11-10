@@ -1,6 +1,6 @@
 <?php
 
-require_once('../configCarro.php');
+require_once('../config.php');
 require_once(DBAPI);
 
 
@@ -114,13 +114,6 @@ function filtro($marca = null) {
 function delete($id = null) {
 
   global $carro;
-    $carro = unlink('imagens/'.$carro['foto']);
   $carro = remove('carros', $id);
-  header('location: index.php');
-}
-function unlin($id = null) {
-
-  global $carro;
-  $carro = unlink('imagens/'.$carro['foto']);
   header('location: index.php');
 }

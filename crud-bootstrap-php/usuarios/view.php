@@ -1,43 +1,48 @@
 <?php 
 	require_once('functions.php'); 
 	view($_GET['id']);
+	include(HEADER_TEMPLATE);
 ?>
 
-<?php include(HEADER_TEMPLATE); ?>
+		<?php if (!empty($_SESSION['message'])) : ?>
+			<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
+				<?php echo $_SESSION['message']; ?>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+		<?php else : ?>
+			<header>
+				<h2>Cliente <?php echo $usuario['id'];?></h2>
+			</header>
+			<hr>	
 
-<h2>Usuário <?php echo $usuario['id']; ?></h2>
-<hr>
+			<dl class="dl-horizontal">
+				<dt>Nome</dt>
+				<dd><?php echo $usuario['nome']; ?></dd>
 
-<?php if (!empty($_SESSION['message'])) : ?>
-	<div class="alert alert-<?php echo $_SESSION['type']; ?>"><?php echo $_SESSION['message']; ?></div>
-<?php endif; ?>
+				<dt>Usuário</dt>
+				<dd><?php echo $usuario['user']; ?></dd>
 
-<dl class="dl-horizontal">
-	<dt>Nome</dt>
-	<dd><?php echo $usuario['nome']; ?></dd>
+				<dt>Senha:</dt>
+				<dd><?php echo $usuario['PASSWORD']; ?></dd>
 
-	<dt>Usuário</dt>
-	<dd><?php echo $usuario['user']; ?></dd>
+				<dt>Foto:</dt>
+				<dd><?php
+					if (empty($usuario['foto'])){
+						echo  "<img src=\"fotos/" . $usuario['foto'] . "\" class=\"shadow p-1 mb-1 bg-body rounded\" width=\"300px\">";
+					}else{
+						echo  "<img src=\"fotos/SemImagem.jpg\" class\"shadow p-1 mb-1 bg-body rounded\" width=\"300px\">";
+					}
+					?>
+				</dd>
+			</dl>
+		<?php endif; ?>
 
-	<dt>Senha:</dt>
-	<dd><?php echo $usuario['password']; ?></dd>
-
-	<dt>Foto:</dt>
-	<?php
-		if (empty($usuario['foto'])){
-			$foto = 'SemImagem.png';
-		}else{
-			$foto = $usuario['foto'];
-		}
-		?>
-		<td><?php echo "<img src='imagens/$foto' width='400px' heigth='100px'>"; ?></td>
-</dl>
-
-<div id="actions" class="row">
-	<div class="col-md-12">
-	  <a href="edit.php?id=<?php echo $usuario['id']; ?>" class="btn btn-secondary">Editar</a>
-	  <a href="index.php" class="btn btn-default">Voltar</a>
-	</div>
-</div>
-
+			<div id="actions" class="row">
+				<div class="col-md-12">
+					<a href="edit.php?id=<?php echo $usuario['id']; ?>" class="btn btn-secondary">Editar</a>
+					<a href="index.php" class="btn btn-default">Voltar</a>
+				</div>
+			</div>
+		<?php// clear_messages(); ?>
+		
 <?php include(FOOTER_TEMPLATE); ?>
