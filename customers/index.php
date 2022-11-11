@@ -27,7 +27,16 @@ border:4px solid #7914C7 ; width: 200px;
 	    </div>
 	</div>
 </header>
-
+<form name = "filtro" method="post" action="index.php">
+			<div class="row">
+				<div class = "form-group col-md-4">
+					<div class ="input-group mb-3">
+						<input type="text" class="form-control" maxlength="80" name="name" required>
+						<button type="submit" class="btn btn-secondary"><i class='fas fa-search'></i> Consultar</button>
+					</div>
+				</div>
+			</div>
+		</form>
 <?php if (!empty($_SESSION['message'])) : ?>
 	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -36,21 +45,6 @@ border:4px solid #7914C7 ; width: 200px;
 	<?php clear_messages(); ?>
 	
 <?php endif; ?>
-
-<form align = "left" method="post" action="filtrogeral.php">
-			<label for="name" >Procure um cliente pelo nome:</label>
-		<div class="row">
-    <div class="form-group col-md-2">
-	
-	  <input type="text" class="form-control" name="name" id="name" placeholder="Nome">
-	  </div>
-	  
-	  <div class="form-group col-md-10">
-<input type="submit" value="Selecionar">
-</div>
-</div>
-</div>
-</form>
 <hr>
 
 <table class="table table-hover">

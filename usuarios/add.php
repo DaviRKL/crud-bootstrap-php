@@ -36,12 +36,12 @@
           
           <div class="row">
               <div class="form-group col-md-4">
-                  <label for="adress">Foto</label>
-                  <input type="file" class="form-control" id= "foto" name="foto">
+                  <label for="campo1">Foto</label>
+                  <input type="file" class="form-control" id="foto" name="foto">
               </div>
 
               <div class="form-group col-md-2">
-                  <label for="hood">Pré-vizualização:</label>
+                  <label for="pre">Pré-vizualização:</label>
                   <img class="form-control shadow p-2 mb-2 bg-body rounded" id="imgPreview" src="fotos/semImagem.jpg" alt="pic">
               </div>
             </div>

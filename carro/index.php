@@ -5,9 +5,8 @@
       $da = new DateTime ($data);
       return $da->format ("d-m-Y");  
 	}
+	include(HEADER_TEMPLATE);
 ?>
-
-<?php include(HEADER_TEMPLATE); ?>
 <style>
 
 td,th{
@@ -23,7 +22,7 @@ label{
 </style>
 
 
-<header >
+<header style="margin-top:10px;">
 	<div class="row">
 		<div class="col-sm-6">
 			<h2>Carros</h2>
@@ -35,14 +34,6 @@ label{
 		
 	</div>
 </header>
-
-<?php if (!empty($_SESSION['message'])) : ?>
-	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<?php echo $_SESSION['message']; ?>
-	</div>
-	<?php clear_messages(); ?>
-<?php endif; ?>
 <form name = "filtro" method="post" action="index.php">
 			<div class="row">
 				<div class = "form-group col-md-4">
@@ -53,6 +44,13 @@ label{
 				</div>
 			</div>
 		</form>
+<?php if (!empty($_SESSION['message'])) : ?>
+	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<?php echo $_SESSION['message']; ?>
+	</div>
+	<?php clear_messages(); ?>
+<?php endif; ?>
 <hr>
 
 <table class="table table-hover">

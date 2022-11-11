@@ -12,8 +12,16 @@ $carro = null;
  */
 function index() {
 	global $carros;
-	$carros = find_all('carros');
+	
+
+  if (!empty($_POST['cars'])){
+      $carros= filter("carros", "modelo like '%" . $_POST['cars'] . "%'");
+  } else {
+    $carros = find_all('carros');
+  }
 }
+
+
 function add() {
 
   if (!empty($_POST['carro'])) {
@@ -113,7 +121,15 @@ function filtro($marca = null) {
 
 function delete($id = null) {
 
-  global $carro;
-  $carro = remove('carros', $id);
+  global $carros;
+  $carros = remove('carros', $id);
   header('location: index.php');
 }
+
+
+	function clear_messages() {
+
+		$_SESSION['type'] = "";
+		$_SESSION['message'] = "";
+	}
+?>

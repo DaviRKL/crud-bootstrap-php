@@ -40,7 +40,7 @@
             }
         ?>
       <div class="form-group col-md-4">
-          <label for="campo2">Foto</label>
+          <label for="campo1">Foto</label>
           <input type="file" class="form-control" name="foto" id="foto" value="fotos/<?php echo $foto ?>">
       </div>
       <div class="form-group col-md-2">

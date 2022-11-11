@@ -3,8 +3,9 @@
     require_once('../config.php');
     require_once(DBAPI);
 
-    $usuarios = null;
+    
     $usuario = null;
+    $usuarios = null;
 
 /**
  *  Listagem de Clientes
@@ -35,33 +36,33 @@
                 if($check !== false) { 
                     $_SESSION['message'] = "File is an image - " . $check["mime"] . ".";
                     $_SESSION['type'] = "info";
-                    $uploadOk = 1;
+                    $uploadOK = 1;
                 } else {
-                    $uploadOk = 0;
+                    $uploadOK = 0;
                     throw new Exception("O arquivo não é uma imagem!");
                 }
             }
             
             // Check if file already exists
             if (file_exists($arquivo_destino)) {
-              $uploadOk = 0;
+              $uploadOK = 0;
               throw new Exception("Desculpe, o arquivo já existe!");
             }
             
             // Check file size
-            if ($_FILES["fileToUpload"]["size"] > 500000) {
-              $uploadOk = 0;
+            if ($tamanho_arquivo > 5000000) {
+              $uploadOK = 0;
               throw new Exception("Desculpe, mas o arquivo é muito grande");
             }
             
             // Allow certain file formats
             if($tipo_arquivo != "jpg" && $tipo_arquivo != "png" && $tipo_arquivo != "jpeg"
             && $tipo_arquivo != "gif" ) {
-              $uploadOk = 0;
+              $uploadOK = 0;
               throw new Exception("Desculpe, mas só são permitiods arquivo de imagem JPG, JPEG, PNG e GIF!");
             }
-            // Check if $uploadOk is set to 0 by an error
-            if ($uploadOk == 0) {
+            // Check if $uploadOK is set to 0 by an error
+            if ($uploadOK == 0) {
               throw new Exception("Desculpe, o arquivo não pode ser enviado!");
             // if everything is ok, try to upload file
             } else {
@@ -84,14 +85,14 @@
             try {
                 $usuario = $_POST['usuario'];
 
-                if (!empty($_FILES["foto"] ["name"])){
+                if (!empty($_FILES["foto"]["name"])){
                   //Upload da foto
                     $pasta_destino = "fotos/";
-                    $arquivo_destino = $pasta_destino . basename($_FILES["foto"] ["name"]);
-                    $nomearquivo = basename($_FILES["foto"] ['tmp_name']);
-                    $resolucao_arquivo = getimagesize($_FILES["foto"] ["tmp_name"]);
-                    $tamanho_arquivo = $_FILES["foto"] ["size"];
-                    $nome_temp = $_FILES["foto"] ["tmp_name"];
+                    $arquivo_destino = $pasta_destino . basename($_FILES["foto"]["name"]);
+                    $nomearquivo = basename($_FILES["foto"]['name']);
+                    $resolucao_arquivo = getimagesize($_FILES["foto"]["tmp_name"]);
+                    $tamanho_arquivo = $_FILES["foto"]["size"];
+                    $nome_temp = $_FILES["foto"]["tmp_name"];
                     $tipo_arquivo = strtolower(pathinfo($arquivo_destino, PATHINFO_EXTENSION));
 
                     upload($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $tamanho_arquivo);
@@ -173,5 +174,9 @@
           $usuarios = remove('usuarios', $id);
           header('location: index.php');
       }
+	function clear_messages() {
 
+		$_SESSION['type'] = "";
+		$_SESSION['message'] = "";
+	}
 ?>

@@ -11,8 +11,14 @@ $customer = null;
  */
 function index() {
 	global $customers;
-	$customers = find_all('customers');
+  if (!empty($_POST['name'])){
+    $customers = filter("customers", "name like '%" . $_POST['name'] . "%'");
+} else {
+  $customers = find_all('customers');
+
 }
+}
+
 function add() {
 
   if (!empty($_POST['customer'])) {

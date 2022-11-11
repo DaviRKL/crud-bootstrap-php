@@ -58,7 +58,7 @@ border:4px solid #7914C7 ; width: 200px;
 					<td><?php echo $usuario['nome']; ?></td>
 					<td><?php echo $usuario['user']; ?></td>
 					<td><?php
-							if (empty($usuario['foto'])){
+							if (!empty($usuario['foto'])){
 								echo  "<img src=\"fotos/" . $usuario['foto'] . "\" class=\"shadow p-1 mb-1 bg-body rounded\" width=\"300px\">";
 							}else{
 								echo  "<img src=\"fotos/SemImagem.jpg\" class\"shadow p-1 mb-1 bg-body rounded\" width=\"300px\">";

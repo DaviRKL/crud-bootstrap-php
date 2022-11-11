@@ -17,4 +17,3 @@
 		  </div>
 		</div> <!-- /.modal -->
 <!-- Modal de Delete-->
-		
