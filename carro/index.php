@@ -76,16 +76,15 @@ label{
 		<td><?php echo $carro['marca']; ?></td>
 		<td><?php echo $carro['ano']; ?></td>
 		<td><?php echo FormataData($carro['datacad']);?></td>
-		<?php
-		if (empty($carro['foto'])){
-			$foto = 'SemImagem.png';
+		<td><?php
+		if (!empty($carro['foto'])){
+			echo  "<img src=\"imagens/" . $carro['foto'] . "\" class=\"shadow p-1 mb-1 bg-body rounded\" width=\"300px\">";
 		}else{
-			$foto = $carro['foto'];
+			echo  "<img src=\"imagens/SemImagem.png\" class\"shadow p-1 mb-1 bg-body rounded\" width=\"300px\">";
 		}
 		$id = base64_encode($carro['id']);
-		?>
-		<td><?php echo "<img src='imagens/$foto' width='400px' heigth='100px'>"; ?></td>
-		
+		?></td>
+			
 		
 	
 		<td class="actions text-start"> 

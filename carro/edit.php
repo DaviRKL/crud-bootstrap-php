@@ -43,11 +43,24 @@
       <label for="datacad">Data de Cadastro</label>
       <input type="date" class="form-control" name="carro['datacad']" value="<?php echo $carro['datacad']; ?>">
     </div>
-	<div class="form-group col-md-5">
-      <label for="foto">Foto</label>
-      <input type="file" class="form-control" name="carro['foto']" value="<?php echo '<img src="'.$carro['foto'].''; ?>">
+    <div class="row">
+        <?php
+            $foto = "";
+            if (empty($carro['foto'])){
+              $foto = 'SemImagem.png';
+            }else{
+              $foto = $carro['foto'];
+            }
+        ?>
+      <div class="form-group col-md-4">
+          <label for="campo1">Foto</label>
+          <input type="file" class="form-control" name="carro['foto']" id="foto" value="imagens/<?php echo $foto ?>">
+      </div>
+      <div class="form-group col-md-2">
+          <label for="campo3">Pré-visualização:</label>
+          <img class="form-control shadow p-2 mb-2 bg-body rounded" id="imgPreview" src="imagens/<?php echo $foto ?>" alt="Foto do carro">
+      </div>
     </div>
-  </div>
   <div id="actions" class="row">
     <div class="col-md-12">
       <button type="submit" class="btn btn-secondary">Salvar</button>
@@ -59,6 +72,19 @@
   
 
 
-<?php include(FOOTER_TEMPLATE);
-		
- ?>
+<?php include(FOOTER_TEMPLATE);	?>
+<script>
+    $(document).ready(() =>{
+        $("#foto").change(function () {
+            const file = this.files[0];
+            if (file) {
+              let reader = new FileReader();
+              reader.onload = function (event) {
+                $("#imgPreview").attr("src", event.target.result);
+              };
+              reader.readAsDataURL(file);
+          
+            }
+        });
+  });
+</script>

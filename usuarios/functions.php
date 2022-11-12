@@ -137,7 +137,7 @@
 
                 $pasta_destino = "fotos/";
                 $arquivo_destino = $pasta_destino . basename($_FILES["foto"] ["name"]);
-                $nomearquivo = basename($_FILES["foto"] ['tmp_name']);
+                $nomearquivo = basename($_FILES["foto"] ['name']);
                 $resolucao_arquivo = getimagesize($_FILES["foto"] ["tmp_name"]);
                 $tamanho_arquivo = $_FILES["foto"] ["size"];
                 $nome_temp = $_FILES["foto"] ["tmp_name"];

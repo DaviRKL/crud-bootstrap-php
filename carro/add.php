@@ -37,9 +37,13 @@
     </div>
 	<div class="form-group col-md-5">
       <label for="foto">Foto</label>
-      <input type="file" class="form-control" name="carro['foto']">
+      <input type="file" class="form-control" id="foto" name="foto">
     </div>
-	
+              <div class="form-group col-md-2">
+                  <label for="pre">Pré-vizualização:</label>
+                  <img class="form-control shadow p-2 mb-2 bg-body rounded" id="imgPreview" src="fotos/semImagem.png" alt="pic">
+              </div>
+            </div>
   </div>
   <div id="actions" class="row">
 		<div class="col-md-12">
@@ -49,3 +53,21 @@
   </div>
 </form>
 <?php include(FOOTER_TEMPLATE); ?>
+
+
+
+<script>
+  $(document).ready(() =>{
+  $("#foto").change(function () {
+    const file = this.files[0];
+    if (file) {
+      let reader = new FileReader();
+      reader.onload = function (event) {
+        $("#imgPreview").attr("src", event.target.result);
+      };
+      reader.readAsDataURL(file);
+  
+    }
+  });
+});
+</script>
