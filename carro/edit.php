@@ -1,7 +1,6 @@
 <?php
   require_once('functions.php');
   edit();
-
   include(HEADER_TEMPLATE);
   
   function CriaData($data){
@@ -54,7 +53,7 @@
         ?>
       <div class="form-group col-md-4">
           <label for="campo1">Foto</label>
-          <input type="file" class="form-control" name="carro['foto']" id="foto" value="imagens/<?php echo $foto ?>">
+          <input type="file" class="form-control" name="foto" id="foto" value="imagens/<?php echo $foto ?>">
       </div>
       <div class="form-group col-md-2">
           <label for="campo3">Pré-visualização:</label>
